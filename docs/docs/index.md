@@ -39,7 +39,7 @@ Alternatively, if you have brew you can run `brew install airy`. To get an overv
 You can run the Airy Core Platform locally by running the following commands:
 
 ```bash
-airy bootstrap
+airy core start
 ```
 
 The bootstrap installation requires
