@@ -1,4 +1,4 @@
-package platform
+package auth
 
 import (
 	"fmt"
@@ -8,11 +8,11 @@ import (
 
 // ResponsePayload for receiving the request
 
-// StartCmd subcommand for Airy Core
+// AuthCmd subcommand for Airy Core
 var AuthCmd = &cobra.Command{
 	Use:              "auth",
 	TraverseChildren: true,
-	Short:            "Creates a default user and returns a JWT token.",
+	Short:            "Create a default user and return a JWT token",
 	Long:             ``,
 	Run:              auth,
 }

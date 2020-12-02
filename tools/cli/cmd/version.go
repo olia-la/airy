@@ -9,7 +9,7 @@ import (
 // StatusCmd cli kafka version
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "Return kafka broker version",
+	Short: "Return current version",
 	Long: `We inspect version in both the kafka brokers and Zookeeper.
 
 Controller: Is the broker the current controller or not (there must be only one)
@@ -25,5 +25,5 @@ func version(cmd *cobra.Command, args []string) {
 }
 
 func init() {
-	CoreCmd.AddCommand(versionCmd)
+	RootCmd.AddCommand(versionCmd)
 }

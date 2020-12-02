@@ -7,7 +7,9 @@ go_library(
     importpath = "cli/cmd",
     visibility = ["//visibility:public"],
     deps = [
-        "//tools/cli/cmd/core:go_default_library",
+        "//tools/cli/cmd/auth:go_default_library",
+        "//tools/cli/cmd/bootstrap:go_default_library",
+        "//tools/cli/cmd/config:go_default_library",
         "@com_github_spf13_cobra//:go_default_library",
     ],
 )
