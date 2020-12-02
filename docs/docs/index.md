@@ -31,8 +31,10 @@ We provide the Airy CLI for simple installation and interaction with the Airy Co
 
 ```
 curl get-airy 
-
 ```
+
+Alternatively, if you have brew you can run `brew install airy`. To get an overview of all available commands of the Airy CLI go [here](guides/airy-cli.md).
+
 
 You can run the Airy Core Platform locally by running the following commands:
 
