@@ -9,6 +9,8 @@ This document provides an overview of the commands of the Airy CLI and the diffe
 
 Lists all available commands.
 
+The help can be seen putting the `-h` or `--help` flags.
+
 ## Version
 
 Returns the version number from the VERSION file.

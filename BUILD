@@ -161,3 +161,9 @@ exports_files(
         "checkstyle.xml",
     ],
 )
+
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:build_file_name BUILD
+# gazelle:prefix
+gazelle(name = "gazelle")
