@@ -1,6 +1,8 @@
 package platform
 
 import (
+	"fmt"
+
 	"github.com/spf13/cobra"
 )
 
@@ -10,17 +12,16 @@ import (
 var StartCmd = &cobra.Command{
 	Use:              "start",
 	TraverseChildren: true,
-	Short:            "Reset apps",
-	Long: `Reset an airy app, with the following order:
-- scale down the statefulset or deployment
-- delete the pvc (unless specified to keep it)
-- wait for the consumer group to be empty and then reset the offset on some or all normal topics, to either earliest or latest
-- delte the existing schema (unless specified to keep it)`,
+	Short:            "Start Airy Core Platform",
+	Long: `This will install the Airy Core Platform in the current directory unless you choose a different one.
+	It will also try to install Vagrant and VirtualBox.`,
 	Run: start,
 }
 
 func start(cmd *cobra.Command, args []string) {
 	// Initialize the api request
+
+	fmt.Println("Starting bootstrap")
 
 }
 

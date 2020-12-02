@@ -1,6 +1,10 @@
-package cmd
+package core
 
-import "github.com/spf13/cobra"
+import (
+	"fmt"
+
+	"github.com/spf13/cobra"
+)
 
 // StatusCmd cli kafka version
 var versionCmd = &cobra.Command{
@@ -16,6 +20,7 @@ ZookeeperStatus: What does Zookeeper say about the health of the broker
 }
 
 func version(cmd *cobra.Command, args []string) {
+	fmt.Println("0.2.0")
 
 }
 

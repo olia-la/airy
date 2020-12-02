@@ -30,10 +30,11 @@ following components:
 We provide the Airy CLI for simple installation and interaction with the Airy Core Platform. You can install the Airy CLI by executing the following command.
 
 ```
-curl get-airy 
+curl get-airy.sh
 ```
 
-Alternatively, if you have brew you can run `brew install airy`. To get an overview of all available commands of the Airy CLI go [here](guides/airy-cli.md).
+
+Refer to [this page](guides/airy-cli.md) for further information about the Airy CLI..
 
 
 You can run the Airy Core Platform locally by running the following commands:

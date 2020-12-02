@@ -1,6 +1,7 @@
 package core
 
 import (
+	auth "cli/cmd/core/auth"
 	core "cli/cmd/core/start"
 
 	"github.com/spf13/cobra"
@@ -17,4 +18,5 @@ var CoreCmd = &cobra.Command{
 func init() {
 
 	CoreCmd.AddCommand(core.StartCmd)
+	CoreCmd.AddCommand(auth.AuthCmd)
 }

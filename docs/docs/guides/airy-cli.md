@@ -5,39 +5,15 @@ sidebar_label: Airy CLI
 
 This document provides an overview of the commands of the Airy CLI and the different configuration parameters.
 
-## Help
-
-Lists all available commands.
-
-The help can be seen putting the `-h` or `--help` flags.
-
-## Version
-
-Returns the version number from the VERSION file.
-
-## Core
-
-### Start
-
-Launches the Airy Core Platform locally by running the bootstrap script.
+## Installation
 
 ```
---beta will load the app images with the beta tag
+curl get-airy.sh
 ```
 
-### Login
+Alternatively, if you have brew you can download it with `brew install airy`.
 
-Creates a default user and returns a login token.
+## First steps
 
-### Demo
-
-Opens the chatplugin demo page in the browser if the platform is running locally.
-
-### Stop
-
-Suspends the Vagrant machine.
-
-### Destroy
-
-Destroys the Vagrant machine.
+`airy help` will list all available cli commands and with e.g. `airy core help` you can view all available subcommands of airy core and its configuration parameters.
 
