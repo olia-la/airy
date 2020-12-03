@@ -11,6 +11,20 @@ import (
 	"github.com/spf13/cobra"
 )
 
+type signupRequestPayload struct {
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+	Password  string `json:"password"`
+	Email     string `json:"email"`
+}
+
+type signupResponsePayload struct {
+	ID        string
+	FirstName string
+	LastName  string
+	Token     string
+}
+
 type loginRequestPayload struct {
 	Email    string `json:"email"`
 	Password string `json:"password"`
@@ -32,7 +46,7 @@ var AuthCmd = &cobra.Command{
 	Run:              auth,
 }
 
-func sendRequest(requestDataJSON []byte, url string) ([]byte, error) {
+func sendRequest(requestDataJSON []byte, url string) ([]byte, int) {
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(requestDataJSON))
 	req.Header.Set("Content-Type", "application/json")
 
@@ -43,31 +57,51 @@ func sendRequest(requestDataJSON []byte, url string) ([]byte, error) {
 	}
 	defer resp.Body.Close()
 
-	if resp.StatusCode != 200 {
-		return nil, fmt.Errorf("Response Status code is %d", resp.StatusCode)
+	log.Println(resp.StatusCode)
+	response, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatal(err)
 	}
 
-	return ioutil.ReadAll(resp.Body)
+	return response, resp.StatusCode
 
 }
 
 func auth(cmd *cobra.Command, args []string) {
-	url := "http://api.airy/users.login"
+	host := "http://api.airy"
 
-	requestPayload := loginRequestPayload{Email: "grace@example.com", Password: "the_answer_is_42"}
-	requestDataJSON, err := json.Marshal(requestPayload)
+	loginRequestPayload := loginRequestPayload{Email: "grace@example.com", Password: "the_answer_is_42"}
+	requestDataJSON, err := json.Marshal(loginRequestPayload)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	responseBody, err := sendRequest(requestDataJSON, url)
-	if err != nil {
-		log.Fatal(err)
+	loginResponseBody, statusCode := sendRequest(requestDataJSON, host+"/users.login")
+	if statusCode != 200 {
+		signupRequestPayload := signupRequestPayload{FirstName: "Grace", LastName: "Hopper", Password: "the_answer_is_42", Email: "grace@example.com"}
+		requestDataJSON, err := json.Marshal(signupRequestPayload)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		signupResponseBody, statusCode := sendRequest(requestDataJSON, host+"/users.signup")
+		if statusCode != 200 {
+			log.Fatal(statusCode)
+		}
+		var signupResponsePayload signupResponsePayload
+		jsonErr := json.Unmarshal(signupResponseBody, &signupResponsePayload)
+		if jsonErr != nil {
+			log.Fatal(jsonErr)
+		}
+		fmt.Println(signupResponsePayload.Token)
+		return
+
 	}
 
 	var loginResponsePayload loginResponsePayload
-	jsonErr := json.Unmarshal(responseBody, &loginResponsePayload)
+	jsonErr := json.Unmarshal(loginResponseBody, &loginResponsePayload)
 	if jsonErr != nil {
+		log.Println(loginResponseBody)
 		log.Fatal("Error unmarshaling response")
 	}
 	fmt.Println(loginResponsePayload.Token)
