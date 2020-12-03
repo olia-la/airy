@@ -27,14 +27,14 @@ following components:
 
 ## Bootstrapping the Airy Core Platform
 
-We provide the Airy CLI for simple installation and interaction with the Airy Core Platform. You can install the Airy CLI by executing the following command.
+We provide the an command line interface for simple installation and interaction with the Airy Core Platform. You can install the Airy CLI by executing the following command.
 
 ```
 curl get-airy.sh
 ```
 
 
-Refer to [this page](guides/airy-cli.md) for further information about the Airy CLI..
+Refer to [this page](guides/airy-cli.md) for further information about the Airy CLI.
 
 
 You can run the Airy Core Platform locally by running the following commands:
