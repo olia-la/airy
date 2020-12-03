@@ -40,7 +40,7 @@ Refer to [this page](guides/airy-cli.md) for further information about the Airy 
 You can run the Airy Core Platform locally by running the following commands:
 
 ```bash
-airy core start
+airy bootstrap
 ```
 
 The bootstrap installation requires
