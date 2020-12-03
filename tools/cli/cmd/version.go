@@ -1,7 +1,9 @@
-package core
+package cmd
 
 import (
 	"fmt"
+	"io/ioutil"
+	"log"
 
 	"github.com/spf13/cobra"
 )
@@ -20,8 +22,12 @@ ZookeeperStatus: What does Zookeeper say about the health of the broker
 }
 
 func version(cmd *cobra.Command, args []string) {
-	fmt.Println("0.2.0")
-
+	airyHomePath := "/Users/pascal/core/"
+	content, err := ioutil.ReadFile(airyHomePath + "VERSION")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(string(content))
 }
 
 func init() {
