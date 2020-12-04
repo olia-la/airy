@@ -8,7 +8,6 @@ go_library(
     importmap = "infrastructure",
     importpath = "cli",
     visibility = ["//visibility:private"],
-    x_defs = {"Version": "0.2.0"},
     deps = ["//infrastructure/cli/cmd:go_default_library"],
 )
 

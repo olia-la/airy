@@ -6,7 +6,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var VersionString string
+var CLIVersion string
+var GitCommit string
 
 // StatusCmd cli kafka version
 var versionCmd = &cobra.Command{
@@ -22,7 +23,8 @@ ZookeeperStatus: What does Zookeeper say about the health of the broker
 }
 
 func version(cmd *cobra.Command, args []string) {
-	fmt.Println(VersionString)
+	fmt.Println("Version: ", CLIVersion)
+	fmt.Println("GitCommit: ", GitCommit)
 }
 
 func init() {

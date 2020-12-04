@@ -15,4 +15,5 @@ go_library(
         "//infrastructure/cli/cmd/config:go_default_library",
         "@com_github_spf13_cobra//:go_default_library",
     ],
+    x_defs = {"CLIVersion": "{STABLE_VERSION}", "GitCommit": "{STABLE_GIT_COMMIT}"},
 )
