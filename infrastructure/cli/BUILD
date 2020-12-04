@@ -1,14 +1,15 @@
 # gazelle:prefix cli
-# gazelle:importmap_prefix tools
+# gazelle:importmap_prefix infrastructure
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
 
 go_library(
     name = "go_default_library",
     srcs = ["main.go"],
-    importmap = "tools",
+    importmap = "infrastructure",
     importpath = "cli",
     visibility = ["//visibility:private"],
-    deps = ["//tools/cli/cmd:go_default_library"],
+    x_defs = {"Version": "0.2.0"},
+    deps = ["//infrastructure/cli/cmd:go_default_library"],
 )
 
 go_binary(
@@ -23,10 +24,10 @@ go_test(
     srcs = ["main_test.go"],
     data = [
         "airy",
-        "//tools/cli/pkg/tests/golden:golden_files",
+        "//infrastructure/cli/pkg/tests/golden:golden_files",
     ],
     embed = [":go_default_library"],
     deps = [
-        "//tools/cli/pkg/tests:go_default_library",
+        "//infrastructure/cli/pkg/tests:go_default_library",
     ],
 )

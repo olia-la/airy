@@ -6,13 +6,13 @@ go_library(
         "root.go",
         "version.go",
     ],
-    importmap = "tools/cmd",
+    importmap = "infrastructure/cmd",
     importpath = "cli/cmd",
     visibility = ["//visibility:public"],
     deps = [
-        "//tools/cli/cmd/auth:go_default_library",
-        "//tools/cli/cmd/bootstrap:go_default_library",
-        "//tools/cli/cmd/config:go_default_library",
+        "//infrastructure/cli/cmd/auth:go_default_library",
+        "//infrastructure/cli/cmd/bootstrap:go_default_library",
+        "//infrastructure/cli/cmd/config:go_default_library",
         "@com_github_spf13_cobra//:go_default_library",
     ],
 )

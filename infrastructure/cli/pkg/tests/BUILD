@@ -4,9 +4,9 @@ go_library(
     name = "go_default_library",
     srcs = ["golden.go"],
     data = [
-        "//tools/cli/pkg/tests/golden/server:golden_files",
+        "//infrastructure/cli/pkg/tests/golden/server:golden_files",
     ],
-    importmap = "tools/pkg/tests",
+    importmap = "infrastructure/pkg/tests",
     importpath = "cli/pkg/tests",
     visibility = ["//visibility:public"],
     deps = ["@com_github_kr_pretty//:go_default_library"],

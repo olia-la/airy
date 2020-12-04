@@ -2,11 +2,11 @@ package cmd
 
 import (
 	"fmt"
-	"io/ioutil"
-	"log"
 
 	"github.com/spf13/cobra"
 )
+
+var VersionString string
 
 // StatusCmd cli kafka version
 var versionCmd = &cobra.Command{
@@ -22,12 +22,7 @@ ZookeeperStatus: What does Zookeeper say about the health of the broker
 }
 
 func version(cmd *cobra.Command, args []string) {
-	airyHomePath := "/Users/pascal/core/"
-	content, err := ioutil.ReadFile(airyHomePath + "VERSION")
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(string(content))
+	fmt.Println(VersionString)
 }
 
 func init() {
