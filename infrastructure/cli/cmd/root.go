@@ -31,9 +31,6 @@ func Execute() {
 }
 
 func init() {
-
-	// rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "Increase verbosity")
-
 	RootCmd.AddCommand(bootstrap.BootstrapCmd)
 	RootCmd.AddCommand(auth.AuthCmd)
 	RootCmd.AddCommand(config.ConfigCmd)

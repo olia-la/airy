@@ -1,9 +1,7 @@
 package bootstrap
 
 import (
-	"fmt"
 	"log"
-	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -23,13 +21,7 @@ var BootstrapCmd = &cobra.Command{
 func bootstrap(cmd *cobra.Command, args []string) {
 	// Initialize the api request
 
-	log.Println("Starting bootstrap")
-
-	path, err := os.Getwd()
-	if err != nil {
-		log.Println(err)
-	}
-	fmt.Println("Do you want to install the Airy Core Platform at %s?", path)
+	log.Println("BootstrapCmd called")
 
 }
 

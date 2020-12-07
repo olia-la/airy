@@ -23,8 +23,7 @@ ZookeeperStatus: What does Zookeeper say about the health of the broker
 }
 
 func version(cmd *cobra.Command, args []string) {
-	fmt.Println("Version: ", CLIVersion)
-	fmt.Println("GitCommit: ", GitCommit)
+	fmt.Printf("Version: %s, GitCommit: %s", CLIVersion, GitCommit)
 }
 
 func init() {
