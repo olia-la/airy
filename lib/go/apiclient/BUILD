@@ -11,4 +11,5 @@ go_library(
     importmap = "lib/go",
     importpath = "apiclient",
     visibility = ["//visibility:private"],
+    deps = ["//lib/go/apiclient/payloads:go_default_library"],
 )

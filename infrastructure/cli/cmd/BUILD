@@ -9,11 +9,14 @@ go_library(
     importmap = "infrastructure/cmd",
     importpath = "cli/cmd",
     visibility = ["//visibility:public"],
+    x_defs = {
+        "CLIVersion": "{STABLE_VERSION}",
+        "GitCommit": "{STABLE_GIT_COMMIT}",
+    },
     deps = [
         "//infrastructure/cli/cmd/auth:go_default_library",
         "//infrastructure/cli/cmd/bootstrap:go_default_library",
         "//infrastructure/cli/cmd/config:go_default_library",
         "@com_github_spf13_cobra//:go_default_library",
     ],
-    x_defs = {"CLIVersion": "{STABLE_VERSION}", "GitCommit": "{STABLE_GIT_COMMIT}"},
 )
