@@ -11,7 +11,7 @@ import (
 func TestSignup(t *testing.T) {
 	c := apiclient.NewClient()
 
-	signupRequestPayload := payloads.SignupRequestPayload{FirstName: "Grace", LastName: "Hopper", Password: "the_answer_is_42", Email: "grace22@example.com"}
+	signupRequestPayload := payloads.SignupRequestPayload{FirstName: "Grace", LastName: "Hopper", Password: "the_answer_is_42", Email: "grace@example.com"}
 
 	res, err := c.Signup(signupRequestPayload)
 

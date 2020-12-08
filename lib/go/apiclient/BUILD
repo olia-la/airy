@@ -10,6 +10,6 @@ go_library(
     ],
     importmap = "lib/go",
     importpath = "apiclient",
-    visibility = ["//visibility:private"],
+    visibility = ["//visibility:public"],
     deps = ["//lib/go/apiclient/payloads:go_default_library"],
 )
