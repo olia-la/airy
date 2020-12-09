@@ -6,5 +6,9 @@ go_library(
     importmap = "infrastructure/cmd/auth",
     importpath = "cli/cmd/auth",
     visibility = ["//visibility:public"],
-    deps = ["@com_github_spf13_cobra//:go_default_library"],
+    deps = [
+        "//lib/go/apiclient:go_default_library",
+        "//lib/go/apiclient/payloads:go_default_library",
+        "@com_github_spf13_cobra//:go_default_library",
+    ],
 )

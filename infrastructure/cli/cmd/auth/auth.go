@@ -3,8 +3,8 @@ package auth
 import (
 	"fmt"
 
-	"github.com/airyhq/airy/lib/go/apiclient"
-	"github.com/airyhq/airy/lib/go/apiclient/payloads"
+	"apiclient"
+	"apiclient/payloads"
 
 	"github.com/spf13/cobra"
 )
@@ -23,6 +23,15 @@ func auth(cmd *cobra.Command, args []string) {
 	loginRequestPayload := payloads.LoginRequestPayload{Email: "grace@example.com", Password: "the_answer_is_42"}
 
 	res, err := c.Login(loginRequestPayload)
+	if err != nil {
+		signupRequestPayload := payloads.SignupRequestPayload{FirstName: "Grace", LastName: "Hopper", Email: "grace@example.com", Password: "the_answer_is_42"}
+		res, err := c.Signup(signupRequestPayload)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		fmt.Println(res.Token)
+	}
 	fmt.Println(res.Token)
 }
 
