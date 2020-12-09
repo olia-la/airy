@@ -2,8 +2,9 @@ package auth
 
 import (
 	"fmt"
-	"lib/go/apiclient"
-	"lib/go/apiclient/payloads"
+
+	"github.com/airyhq/airy/lib/go/apiclient"
+	"github.com/airyhq/airy/lib/go/apiclient/payloads"
 
 	"github.com/spf13/cobra"
 )
