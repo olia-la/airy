@@ -9,3 +9,13 @@ go_test(
         "@com_github_stretchr_testify//assert:go_default_library",
     ],
 )
+
+go_test(
+    name = "api-client-test_test",
+    srcs = ["users_test.go"],
+    deps = [
+        "//lib/go/apiclient",
+        "//lib/go/apiclient/payloads",
+        "@com_github_stretchr_testify//assert",
+    ],
+)

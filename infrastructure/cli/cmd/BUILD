@@ -1,7 +1,7 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
 go_library(
-    name = "go_default_library",
+    name = "cmd",
     srcs = [
         "root.go",
         "version.go",
@@ -14,9 +14,9 @@ go_library(
         "GitCommit": "{STABLE_GIT_COMMIT}",
     },
     deps = [
-        "//infrastructure/cli/cmd/auth:go_default_library",
-        "//infrastructure/cli/cmd/bootstrap:go_default_library",
-        "//infrastructure/cli/cmd/config:go_default_library",
-        "@com_github_spf13_cobra//:go_default_library",
+        "//infrastructure/cli/cmd/auth",
+        "//infrastructure/cli/cmd/bootstrap",
+        "//infrastructure/cli/cmd/config",
+        "@com_github_spf13_cobra//:cobra",
     ],
 )
