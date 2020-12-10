@@ -15,7 +15,7 @@ import (
 var DemoCmd = &cobra.Command{
 	Use:              "demo",
 	TraverseChildren: true,
-	Short:            "Reloads configuration based on airy.conf",
+	Short:            "Opens the demo page in the browser",
 	Long:             ``,
 	Run:              demo,
 }

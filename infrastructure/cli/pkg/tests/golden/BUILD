@@ -5,5 +5,7 @@ filegroup(
     srcs = [
         "cli.version.golden",
         "cli.no-args.golden",
+        "cli.auth.golden",
+        "api.signup.golden",
     ],
 )

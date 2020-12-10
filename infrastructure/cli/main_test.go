@@ -18,7 +18,7 @@ func TestCli(t *testing.T) {
 		wantErr bool
 	}{
 		{"no args", []string{}, "cli.no-args.golden", false},
-		// {"auth", []string{"auth"}, "cli.auth.golden", false},
+		{"auth", []string{"auth", "--url", "http://localhost:3001"}, "cli.auth.golden", false},
 		// {"bootstrap", []string{"bootstrap"}, "cli.bootstrap.golden", false},
 		// {"config", []string{"config"}, "cli.config.no-args.golden", true},
 		{"version", []string{"version"}, "cli.version.golden", false},

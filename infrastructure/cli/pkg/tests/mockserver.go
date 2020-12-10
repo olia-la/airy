@@ -14,7 +14,7 @@ import (
 // MockServer starts the local server that returns the corresponding golden files for each endpoint
 func MockServer() {
 	mux := goji.NewMux()
-	mux.HandleFunc(pat.Get("/users.signup"), mockUserSignupHandler)
+	mux.HandleFunc(pat.Post("/users.signup"), mockUserSignupHandler)
 	mux.HandleFunc(pat.Post("/users.login"), mockUserLoginHandler)
 
 	log.Println("starting mock server on port localhost:3001")
@@ -28,7 +28,7 @@ func MockServer() {
 }
 
 func mockUserSignupHandler(w http.ResponseWriter, r *http.Request) {
-	data, err := ioutil.ReadFile("pkg/tests/golden/server/srv.kafka.status.json")
+	data, err := ioutil.ReadFile("pkg/tests/golden/api.signup.golden")
 	if err != nil {
 		fmt.Fprint(w, err)
 	}
@@ -36,7 +36,7 @@ func mockUserSignupHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func mockUserLoginHandler(w http.ResponseWriter, r *http.Request) {
-	data, err := ioutil.ReadFile("pkg/tests/golden/server/srv.kafka.consumergroup.json")
+	data, err := ioutil.ReadFile("pkg/tests/golden/api.signup.golden")
 	if err != nil {
 		fmt.Fprint(w, err)
 	}

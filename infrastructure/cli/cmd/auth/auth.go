@@ -19,7 +19,10 @@ var AuthCmd = &cobra.Command{
 }
 
 func auth(cmd *cobra.Command, args []string) {
+	url, _ := cmd.Flags().GetString("url")
 	c := apiclient.NewClient()
+	c.BaseURL = url
+
 	loginRequestPayload := payloads.LoginRequestPayload{Email: "grace@example.com", Password: "the_answer_is_42"}
 
 	res, err := c.Login(loginRequestPayload)
@@ -36,4 +39,6 @@ func auth(cmd *cobra.Command, args []string) {
 }
 
 func init() {
+	var url string
+	AuthCmd.Flags().StringVarP(&url, "url", "u", "http://api.airy", "The url of the Airy api")
 }

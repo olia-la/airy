@@ -7,6 +7,7 @@ Available Commands:
   auth        Create a default user and return a JWT token
   bootstrap   Bootstrap Airy Core Platform locally
   config      Reloads configuration based on airy.conf
+  demo        Opens the demo page in the browser
   help        Help about any command
   version     Return current version
 
