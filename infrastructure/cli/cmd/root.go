@@ -7,6 +7,7 @@ import (
 	"cli/cmd/auth"
 	"cli/cmd/bootstrap"
 	"cli/cmd/config"
+	"cli/cmd/demo"
 
 	"github.com/spf13/cobra"
 )
@@ -34,4 +35,5 @@ func init() {
 	RootCmd.AddCommand(bootstrap.BootstrapCmd)
 	RootCmd.AddCommand(auth.AuthCmd)
 	RootCmd.AddCommand(config.ConfigCmd)
+	RootCmd.AddCommand(demo.DemoCmd)
 }

@@ -17,6 +17,7 @@ go_library(
         "//infrastructure/cli/cmd/auth",
         "//infrastructure/cli/cmd/bootstrap",
         "//infrastructure/cli/cmd/config",
+        "//infrastructure/cli/cmd/demo",
         "@com_github_spf13_cobra//:cobra",
     ],
 )

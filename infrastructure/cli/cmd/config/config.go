@@ -25,6 +25,4 @@ func config(cmd *cobra.Command, args []string) {
 }
 
 func init() {
-	var appname string
-	ConfigCmd.Flags().StringVarP(&appname, "app-name", "a", "", "The app which we will reset.")
 }
