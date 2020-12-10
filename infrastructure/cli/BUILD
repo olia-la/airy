@@ -21,6 +21,10 @@ go_binary(
 go_test(
     name = "cli_test",
     srcs = ["main_test.go"],
+    data = [
+        "airy",
+        "//infrastructure/cli/pkg/tests/golden:golden_files"
+    ],
     embed = [":cli_lib"],
     deps = ["//infrastructure/cli/pkg/tests"],
 )

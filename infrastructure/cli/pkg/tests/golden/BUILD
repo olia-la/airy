@@ -1,10 +1,9 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
+package(default_visibility = ["//visibility:public"])
 
-go_library(
-    name = "golden",
-    srcs = ["golden.go"],
-    importmap = "infrastructure/pkg/tests/golden",
-    importpath = "cli/pkg/tests/golden",
-    visibility = ["//visibility:public"],
-    deps = ["@com_github_kr_pretty//:go_default_library"],
+filegroup(
+    name = "golden_files",
+    srcs = [
+        "cli.version.golden",
+        "cli.no-args.golden",
+    ],
 )
